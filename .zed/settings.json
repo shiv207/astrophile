@@ -1,0 +1,16 @@
+{
+  "lsp": {
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict"
+        },
+        "python": {
+          "pythonPath": "/Users/shivamshsr/anaconda3/envs/TARS/bin/python3.10"
+        }
+      }
+    }
+  },
+  "autosave": "on_window_change"
+}

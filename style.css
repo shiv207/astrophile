@@ -1,0 +1,260 @@
+/* Import Orbitron and Poppins fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
+
+/* General Styling */
+:root {
+  --bg-color: #111; /* Background color */
+  --text-color: #ddd; /* Text color */
+  --accent-color: #ffffff; /* Accent color */
+  --primary-color: #000000; /* Darker color for additional elements */
+  --hover-bg-color: rgba(255, 255, 255, 0.1); /* Hover effect background */
+  --font-family-orbitron: 'Orbitron', sans-serif; /* Futuristic font family */
+  --font-family-poppins: 'Poppins', sans-serif; /* Clean and modern font family */
+}
+
+/* General body styles */
+body {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6), rgba(128, 0, 128, 0.6), rgba(255, 0, 0, 0.6));
+  background-size: 200% 200%;
+  animation: gradientShift 10s ease infinite;
+  color: var(--text-color);
+  font-family: var(--font-family-poppins);
+  margin: 0; /* Remove default margin */
+  padding: 0; /* Remove default padding */
+}
+
+/* Gradient animation for background */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+/* Header Styling */
+header, .stSidebar, .css-12w0qpk, .css-1yzw07s, .css-1544g2n {
+  background-color: var(--primary-color); /* Dark background */
+  border-bottom: 1px solid #161616; /* Subtle border */
+}
+
+/* Top Navigation Bar Styling */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Height of the top bar */
+  background: linear-gradient(135deg, #000000, #3c3c3c); /* Gradient background */
+  border-bottom: 1px solid #333; /* Border at the bottom */
+  display: flex;
+  justify-content: flex-end; /* Align items to the right */
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.topbar button {
+  background-color: transparent;
+  color: var(--accent-color);
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 20px;
+  transition: all 0.3s ease;
+}
+
+.topbar button:hover {
+  background-color: var(--hover-bg-color); /* Subtle hover effect */
+  border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Content Area */
+.main-content {
+  margin-top: 60px; /* Space for the top bar */
+  padding: 40px 20px; /* Padding for content */
+  text-align: center; /* Center the text */
+}
+
+/* Image Styling */
+img {
+  border-radius: 15px; /* Rounded corners */
+  width: 100%;
+  height: auto;
+  max-width: 800px; /* Maximum width for larger images */
+}
+
+/* Sidebar Styling */
+.stSidebar {
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text color */
+  backdrop-filter: blur(15px); /* Blur effect for background */
+  padding: 20px; /* Padding for the sidebar */
+  opacity: 0.9; /* Slightly transparent */
+}
+
+/* Custom Button Styling */
+.stButton > button {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.485); /* Translucent background */
+  border: 1px solid rgba(0, 0, 0, 0.485);
+  color: white;
+  font-size: 1.2rem;
+  border-radius: 7px; /* Slightly rounded corners */
+  backdrop-filter: blur(8px); /* Glassy effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.stButton > button:hover {
+  background: rgba(255, 255, 255, 0.3); /* More visible on hover */
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Space News Section Styling */
+.stElement {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: var(--primary-color); /* Darker background for news section */
+  border-radius: 15px;
+  text-align: center; /* Center text inside the section */
+}
+
+.stElement h2, .stElement h3 {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+  font-family: var(--font-family-orbitron);
+}
+
+.stElement h2 {
+  font-size: 3rem; /* Increase font size for h2 */
+}
+
+.stElement h3 {
+  font-size: 2.5rem; /* Increase font size for h3 */
+}
+
+.stElement p {
+  font-size: 1.5rem; /* Increase font size for paragraphs */
+  color: var(--accent-color);
+  max-width: 800px; /* Constrain width for better readability */
+  margin: 0 auto; /* Center paragraphs */
+}
+
+.stElement img {
+  border-radius: 15px; /* Rounded corners */
+  max-width: 100%; /* Ensure images scale up to container width */
+  height: auto;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+  .stElement {
+    padding: 2.5rem; /* More padding for larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .stElement {
+    padding: 3rem; /* More padding for very large screens */
+  }
+}
+
+/* Centering and Enlarging Welcome Section */
+.welcome-section {
+  display: flex; /* Use flexbox for centering */
+  flex-direction: column; /* Stack items vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  height: 80vh; /* Adjust height to center content vertically */
+  text-align: center;
+  margin: 0; /* Remove any extra margins */
+  padding: 0 20px; /* Add some padding to prevent content from touching edges */
+  font-family: var(--font-family-poppins); /* Apply futuristic font */
+}
+
+.welcome-section h1 {
+  font-size: 5rem; /* Larger font size for main title */
+  font-weight: 700; /* Bold weight for emphasis */
+  color: var(--accent-color);
+  font-family: var(--font-family-orbitron);
+  margin-bottom: 1rem; /* Space below title */
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.7), 0 0 30px rgba(255, 255, 255, 0.5), 0 0 40px rgba(255, 255, 255, 0.3); /* Glowing effect */
+}
+
+.welcome-section p {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  max-width: 800px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+/* Markdown Styling */
+.stMarkdown {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* Glow Text */
+.glow-text {
+  font-size: 2.5rem; /* Increased font size */
+  font-weight: 700; /* Bold weight */
+  color: #00BFFF; /* Blue accent color */
+  text-shadow: 0 0 10px #00BFFF, 0 0 20px #00BFFF, 0 0 30px #00BFFF, 0 0 40px #00BFFF; /* Glowing effect */
+}
+
+/* ISS Tracker Headline */
+.iss-tracker-header {
+  font-size: 4rem; /* Increase font size for headline */
+  font-weight: 700; /* Bold weight */
+  color: #00BFFF;
+  /* Bright blue color /
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.5), 0 0 35px rgba(255, 255, 255, 0.3); / Glowing effect /
+  font-family: var(–font-family-orbitron);
+  margin-bottom: 1rem; / Space below headline */
+}
+
+  /* ISS Tracker Subheading /
+  .iss-tracker-subheader {
+  font-size: 2rem; / Increase font size for subheading /
+  font-weight: 500; / Medium weight /
+  color: #ffffff; / White color /
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 20px rgba(255, 255, 255, 0.5); / Subtle glow effect /
+  font-family: var(–font-family-poppins);
+  margin-bottom: 2rem; / Space below subheading */
+}
+
+  /* ISS Tracker Map /
+  .iss-map {
+  width: 100%;
+  height: 500px; / Set height for the map /
+  border-radius: 15px; / Rounded corners /
+  border: 1px solid #333; / Subtle border /
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); / Shadow effect /
+  background: rgba(0, 0, 0, 0.5); / Dark translucent background */
+}
+
+/* Fullscreen Video Background */
+.fullscreen-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Ensure the video stays behind other content */
+}
+
+.fullscreen-video-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Hide any overflow from video */
+}
