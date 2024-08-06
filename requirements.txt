@@ -4,7 +4,7 @@ plotly==5.20.0
 google-api-python-client==2.94.0
 beautifulsoup4==4.12.2
 pillow==9.3.0
-iss-info==1.1.0  
+ISS-Info==1.0.0 
 numpy==1.24.3 
 pandas==2.0.3  
 matplotlib==3.7.2  
