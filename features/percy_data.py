@@ -69,6 +69,19 @@ def display_rover_image():
     except requests.exceptions.RequestException as e:
         st.error(f"Error fetching image: {e}")
 
+
+def display_curious_image():
+    curious_url = "https://en.wikipedia.org/wiki/File:Curiosity_Self-Portrait_at_%27Big_Sky%27_Drilling_Site.jpg"  # Example URL; adjust if needed
+
+    # Fetch the image
+    try:
+        response = requests.get(curious_url)
+        response.raise_for_status()
+        image = Image.open(BytesIO(response.content))
+        st.image(image, caption="Curiosity Rover", use_column_width=True)
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error fetching image: {e}")
+
 def fetch_image(image_path):
     try:
         img = Image.open(image_path)
@@ -139,7 +152,9 @@ def display_perseverance_data():
     display_rover_map()
 
     if st.button("More about Perseverance Rover", key="perseverance_info"):
+        display_rover_image()
         display_rover_info("Perseverance")
+        
 
 def display_curiosity_data():
     st.write("# Curiosity Rover Data")
@@ -148,4 +163,5 @@ def display_curiosity_data():
     display_rover_map()
 
     if st.button("More about Curiosity Rover", key="curiosity_info"):
+        display_curious_image()
         display_rover_info("Curiosity")
