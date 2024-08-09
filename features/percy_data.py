@@ -58,7 +58,7 @@ def fetch_data(url, retries=3):
                 return None
 
 def display_rover_image():
-    image_url = "https://en.wikipedia.org/wiki/File:Perseverance_Rover.png"  # Example URL; adjust if needed
+    image_url = "https://en.wikipedia.org/wiki/File:Perseverance-Selfie-at-Rochette-Horizontal-V2.gif"  # Example URL; adjust if needed
 
     # Fetch the image
     try:
