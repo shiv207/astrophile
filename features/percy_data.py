@@ -69,9 +69,9 @@ def display_rover_image():
     except requests.exceptions.RequestException as e:
         st.error(f"Error fetching image: {e}")
 
-def fetch_image(path):
+def fetch_image():
     try:
-        img = Image.open(path)
+        img = Image.open(MARS_MAP_IMAGE_PATH)
         return img
     except IOError as e:
         st.error(f"Error opening image file: {e}")
