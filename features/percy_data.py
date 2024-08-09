@@ -69,6 +69,14 @@ def display_rover_image():
     except requests.exceptions.RequestException as e:
         st.error(f"Error fetching image: {e}")
 
+def fetch_image(image_path):
+    try:
+        img = Image.open(image_path)
+        return img
+    except Exception as e:
+        st.error(f"Error loading image: {e}")
+        return None
+
 def display_photos(url, title):
     data = fetch_data(url)
     if data:
