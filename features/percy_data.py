@@ -28,6 +28,10 @@ ROVER_LOCATIONS = {
 # Local Mars map image path
 MARS_MAP_IMAGE_PATH = 'Images/mars_map.jpg'  # Ensure this file exists
 
+# Local Rover image paths
+PERCY_IMAGE_PATH = 'Images/percy.jpg'
+CURIOUS_IMAGE_PATH = 'Images/curious.jpg'
+
 # Wikipedia-style information for the rovers
 ROVER_INFO = {
     'Perseverance': (
@@ -58,43 +62,18 @@ def fetch_data(url, retries=3):
                 return None
 
 def display_rover_image():
-    image_url = "https://upload.wikimedia.org/wikipedia/commons/a/a4/Perseverance-Selfie-at-Rochette-Horizontal-V2.gif"  # Example direct image URL
-
-    # Fetch the image
     try:
-        response = requests.get(image_url)
-        response.raise_for_status()
-
-        # Check if the content type is an image
-        if 'image' in response.headers['Content-Type']:
-            image = Image.open(BytesIO(response.content))
-            st.image(image, caption="Perseverance Rover", use_column_width=True)
-        else:
-            st.error(f"URL did not return an image. Content-Type: {response.headers['Content-Type']}")
-
-    except requests.exceptions.RequestException as e:
-        st.error(f"Error fetching image: {e}")
-
-    except UnidentifiedImageError:
-        st.error("The image could not be identified or is not a valid image format.")
+        image = Image.open(PERCY_IMAGE_PATH)
+        st.image(image, caption="Perseverance Rover", use_column_width=True)
+    except Exception as e:
+        st.error(f"Error loading Perseverance image: {e}")
 
 def display_curious_image():
-    curious_url = "https://upload.wikimedia.org/wikipedia/commons/f/f3/Curiosity_Self-Portrait_at_%27Big_Sky%27_Drilling_Site.jpg"  # Updated example URL
-
-    # Fetch the image
     try:
-        response = requests.get(curious_url)
-        response.raise_for_status()
-        
-        # Verify content type to ensure it's an image
-        if 'image' in response.headers['Content-Type']:
-            image = Image.open(BytesIO(response.content))
-            st.image(image, caption="Curiosity Rover", use_column_width=True)
-        else:
-            st.error(f"URL did not return an image. Content-Type: {response.headers['Content-Type']}")
-            
-    except requests.exceptions.RequestException as e:
-        st.error(f"Error fetching image: {e}")
+        image = Image.open(CURIOUS_IMAGE_PATH)
+        st.image(image, caption="Curiosity Rover", use_column_width=True)
+    except Exception as e:
+        st.error(f"Error loading Curiosity image: {e}")
 
 def fetch_image(image_path):
     try:
@@ -168,7 +147,6 @@ def display_perseverance_data():
     if st.button("More about Perseverance Rover", key="perseverance_info"):
         display_rover_image()
         display_rover_info("Perseverance")
-        
 
 def display_curiosity_data():
     st.write("# Curiosity Rover Data")
