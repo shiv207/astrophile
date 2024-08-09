@@ -58,17 +58,25 @@ def fetch_data(url, retries=3):
                 return None
 
 def display_rover_image():
-    image_url = "https://en.wikipedia.org/wiki/File:Perseverance-Selfie-at-Rochette-Horizontal-V2.gif"  # Example URL; adjust if needed
+    image_url = "https://upload.wikimedia.org/wikipedia/commons/e/ed/Perseverance_Selfie_at_Rochette_Horizontal-V2.gif"  # Example direct image URL
 
     # Fetch the image
     try:
         response = requests.get(image_url)
         response.raise_for_status()
-        image = Image.open(BytesIO(response.content))
-        st.image(image, caption="Perseverance Rover", use_column_width=True)
+
+        # Check if the content type is an image
+        if 'image' in response.headers['Content-Type']:
+            image = Image.open(BytesIO(response.content))
+            st.image(image, caption="Perseverance Rover", use_column_width=True)
+        else:
+            st.error(f"URL did not return an image. Content-Type: {response.headers['Content-Type']}")
+
     except requests.exceptions.RequestException as e:
         st.error(f"Error fetching image: {e}")
 
+    except UnidentifiedImageError:
+        st.error("The image could not be identified or is not a valid image format.")
 
 def display_curious_image():
     curious_url = "https://upload.wikimedia.org/wikipedia/commons/3/3d/Curiosity_Self-Portrait_at_%27Big_Sky%27_Drilling_Site.jpg"  # Updated example URL
