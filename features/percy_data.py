@@ -71,14 +71,20 @@ def display_rover_image():
 
 
 def display_curious_image():
-    curious_url = "https://en.wikipedia.org/wiki/File:Curiosity_Self-Portrait_at_%27Big_Sky%27_Drilling_Site.jpg"  # Example URL; adjust if needed
+    curious_url = "https://upload.wikimedia.org/wikipedia/commons/3/3d/Curiosity_Self-Portrait_at_%27Big_Sky%27_Drilling_Site.jpg"  # Updated example URL
 
     # Fetch the image
     try:
         response = requests.get(curious_url)
         response.raise_for_status()
-        image = Image.open(BytesIO(response.content))
-        st.image(image, caption="Curiosity Rover", use_column_width=True)
+        
+        # Verify content type to ensure it's an image
+        if 'image' in response.headers['Content-Type']:
+            image = Image.open(BytesIO(response.content))
+            st.image(image, caption="Curiosity Rover", use_column_width=True)
+        else:
+            st.error(f"URL did not return an image. Content-Type: {response.headers['Content-Type']}")
+            
     except requests.exceptions.RequestException as e:
         st.error(f"Error fetching image: {e}")
 
