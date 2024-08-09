@@ -44,38 +44,49 @@ def display_picture_of_the_day():
                 flex-direction: column;
                 justify-content: space-between;
                 min-height: 100vh;
+                padding: 20px;
+                box-sizing: border-box;
             }}
             [data-testid="stAppViewContainer"]::before {{
-              content: "";
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
-              backdrop-filter: blur(5px); /* Blur effect */
-              z-index: -1;
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+                backdrop-filter: blur(5px); /* Blur effect */
+                z-index: -1;
             }}
             .headline {{
                 text-align: center;
-                font-size: 3rem;
-                text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 15px #0ff, 0 0 20px #0ff, 0 0 25px #0ff;
+                font-size: 2.5rem;
                 font-weight: bold;
                 color: #ffffff;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
                 margin-top: 20px;
             }}
             .info-section {{
-                font-size: 1.5rem;
-                line-height: 1.7;
+                font-size: 1.2rem;
+                line-height: 1.6;
                 color: #ffffff;
                 text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-                margin-bottom: 50px;
-                padding: 0 20px;
+                margin-top: auto;
+                padding: 20px;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
                 text-align: center;
-                position: absolute;
-                bottom: -650px;
                 width: 100%;
+            }}
+            /* Responsive design for smaller screens */
+            @media only screen and (max-width: 768px) {{
+                .headline {{
+                    font-size: 1.8rem;
+                }}
+                .info-section {{
+                    font-size: 1rem;
+                    padding: 15px;
+                }}
             }}
             </style>
             """, unsafe_allow_html=True)
