@@ -58,7 +58,7 @@ def fetch_data(url, retries=3):
                 return None
 
 def display_rover_image():
-    image_url = "https://upload.wikimedia.org/wikipedia/commons/e/ed/Perseverance_Selfie_at_Rochette_Horizontal-V2.gif"  # Example direct image URL
+    image_url = "https://upload.wikimedia.org/wikipedia/commons/a/a4/Perseverance-Selfie-at-Rochette-Horizontal-V2.gif"  # Example direct image URL
 
     # Fetch the image
     try:
@@ -79,7 +79,7 @@ def display_rover_image():
         st.error("The image could not be identified or is not a valid image format.")
 
 def display_curious_image():
-    curious_url = "https://upload.wikimedia.org/wikipedia/commons/3/3d/Curiosity_Self-Portrait_at_%27Big_Sky%27_Drilling_Site.jpg"  # Updated example URL
+    curious_url = "https://upload.wikimedia.org/wikipedia/commons/f/f3/Curiosity_Self-Portrait_at_%27Big_Sky%27_Drilling_Site.jpg"  # Updated example URL
 
     # Fetch the image
     try:
