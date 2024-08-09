@@ -26,7 +26,7 @@ ROVER_LOCATIONS = {
 }
 
 # Local Mars map image path
-MARS_MAP_IMAGE_PATH = 'images/mars_map.jpg'  # Ensure this file exists
+MARS_MAP_IMAGE_PATH = 'Images/mars_map.jpg'  # Ensure this file exists
 
 # Wikipedia-style information for the rovers
 ROVER_INFO = {
@@ -68,14 +68,6 @@ def display_rover_image():
         st.image(image, caption="Perseverance Rover", use_column_width=True)
     except requests.exceptions.RequestException as e:
         st.error(f"Error fetching image: {e}")
-
-def fetch_image():
-    try:
-        img = Image.open(MARS_MAP_IMAGE_PATH)
-        return img
-    except IOError as e:
-        st.error(f"Error opening image file: {e}")
-        return None
 
 def display_photos(url, title):
     data = fetch_data(url)
