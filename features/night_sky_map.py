@@ -3,7 +3,7 @@ import streamlit as st
 def display_night_sky_map():
 
     # Page title
-    st.markdown("<h1 style='text-align: center; color: white;'>Interactive Night Sky Map</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: white;'>Night Sky Map ✨</h1>", unsafe_allow_html=True)
 
     # Location input
     st.sidebar.header("Location Settings")
